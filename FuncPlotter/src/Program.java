@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.Scanner;
 
 import graphics.Canvas;
 
@@ -17,13 +18,25 @@ public class Program {
         // Draw a short red diagonal on the canvas
         canvas.pause();
         canvas.setColor(Color.red);
-        MyFunction fSin = (x)->{return (int) (200 * Math.sin(Math.PI * x / 360));};
-        for (int x = -360; x < 360; x++) {
-            canvas.plot (x, fSin.calcY(x));
-        }
-
-        // Pause and close the canvas then terminate the program.
-        canvas.pause();
-        canvas.close();
+        MyFunction sin = (x)->{
+        	return (int) (200 * Math.sin(Math.PI * x / 360));
+        };
+        
+        MyFunction log = (x)-> {
+        	return (int) (20 * Math.log10(x));
+        };
+        
+        MyFunction cubic = (x)-> {
+        	return (int) (Math.pow(x,3)/ 200000);
+        };
+        
     }
+    public static void plotFunctions(MyFunction[] y) {
+    	for (int x = -360; x < 360; x++) {
+            canvas.plot (x, Sin.calc(x));
+        }
+    }
+    // Pause and close the canvas then terminate the program.
+    canvas.pause();
+    canvas.close();
 }
